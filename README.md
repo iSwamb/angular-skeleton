@@ -15,6 +15,7 @@ This is a skeleton for Angular projects. It contains the basic structure of an A
 * Internationalization (i18n)
 * Shared components
 
+
 ## Installation
 Firstly, to install this project, you need to have [Node.js](https://nodejs.org/en/) installed on your machine. 
 
@@ -38,6 +39,7 @@ Finally, you can run the project:
 ng serve
 ```
 
+
 ## Documentation
 As mentioned before, this project contains some useful tools and configurations. There are the explanations of each one of them: 
 
@@ -51,7 +53,7 @@ In this skeleton you'll find a configuration for i18n. You can find the translat
 
 Be careful about the organization of the translations. The keys must be organized by components. 
 
-For example, if you have a component called `home`, you need to create a key called `HOME` in the JSON file of each language. Then, you can add the translations of this component in this key.
+For example, if you have a component called `home.component.ts`, you need to create a key called `home` in the JSON file of each language. Then, you can add the translations of this component in this key.
 ```json
 {
   "home": {
@@ -70,10 +72,10 @@ For general translations, you can set them in the root of the JSON file. For exa
 To use the translations, you need to add the `translate` pipe to the HTML element you want to translate. If your want to uppercase the translation, you can add the `uppercase` pipe after the `translate` pipe. For example:
 ```html
 <!-- General translation -->
-<h1>{{ 'HOME.TITLE' | translate }}</h1>
+<h1>{{ 'home.title' | translate }}</h1>
 
 <!-- Uppercase translation -->
-<h1>{{ 'HOME.TITLE' | translate | uppercase }}</h1>
+<h1>{{ 'home.home' | translate | uppercase }}</h1>
 ```
 
 Also, be careful about the repetition of the translations. If you have a translation that is used in multiple components, you need to create a key for it in the JSON file of each language. Then, you can use it in the HTML element you want to translate. For example:
@@ -98,7 +100,7 @@ If you want to create a new shared component, just follow these steps:
 ng generate component shared/my-component
 ```
 
-2. In the `shared.module.ts` file, add the component to the `exports` array.
+2. In the `shared.module.ts` file, add the component to the `declarations` and `exports` arrays.
 ```typescript
 ...
 @NgModule({
@@ -115,16 +117,29 @@ ng generate component shared/my-component
 ...
 ```
 
+Finally, you can simply use the component in the HTML of the components you want. For example:
+```html
+<app-my-component></app-my-component>
+```
+
+
 ## Commits convention
 To make the commits more readable, we use a convention for the commit messages. The commit message must be structured as follows:
 
 ```bash
-[GITMOJI][TYPE]: [DESCRIPTION
+[GITMOJI][TYPE]: [DESCRIPTION]
+[BODY]
 ```
 
 For example:
 ```bash
 🐛 fix: Fixing the bug of the login page
+- Fixing the bug of the login page
+```
+
+To do that with Git, you can simply use the following command which will open a text editor where you can write your commit message:
+```bash
+git commit
 ```
 
 Down below, you can find the list of the types of commits that you can use with the Gitmoji:
@@ -143,4 +158,4 @@ Down below, you can find the list of the types of commits that you can use with 
 Please, respect this convention when you make a commit, it's important for the readability of the commits !!!
 
 ## Contributing
-If you want to contribute to this project, you can fork it and make a pull request.
+If you want to contribute to this project, you can fork it and make a pull request. I will be happy to review your pull request and merge it if it's relevant :)
