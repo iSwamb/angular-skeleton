@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TranslateService} from "./services/translate.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-skeleton';
+  constructor(private _translateService: TranslateService) {}
+
+  setLang(lang: string) {
+    this._translateService.use(lang);
+  }
 }
