@@ -1,6 +1,9 @@
-<div>
-  <button (click)="setLang('fr')">FR</button>
-  <button (click)="setLang('en')">EN</button>
-</div>
-
-<h1>{{'title' | translate}}</h1>
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<footer>
+  <app-footer></app-footer>
+</footer>

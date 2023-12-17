@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ 'components.start_page.welcome' | translate }}</mat-card-title>
+    <mat-card-subtitle>{{ 'components.start_page.sub_welcome' | translate }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ 'components.start_page.description' | translate }}</p>
+    <a href="https://material.angular.io/" target="_blank">{{ 'components.start_page.doc_link' | translate }}</a>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button mat-raised-button color="primary" (click)="openLink('https://material.angular.io/')">{{ 'components.start_page.learn_more' | translate }}</button>
+  </mat-card-actions>
+</mat-card>

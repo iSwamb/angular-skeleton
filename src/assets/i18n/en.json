@@ -1,3 +1,25 @@
 {
-  "title": "The title"
+  "components": {
+    "start_page": {
+      "welcome": "Welcome to Angular Material",
+      "sub_welcome": "Building Beautiful UIs",
+      "description": "Angular Material offers a wide range of UI components, harnessing the power of Material Design to create beautiful and responsive layouts.",
+      "doc_link": "Angular Material Documentation",
+      "learn_more": "Learn More"
+    },
+    "core": {
+      "footer": {
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact"
+      },
+      "header": {
+        "title": "Your Application"
+      },
+      "translation_switch": {
+        "fr": "fr",
+        "en": "en"
+      }
+    }
+  }
 }
