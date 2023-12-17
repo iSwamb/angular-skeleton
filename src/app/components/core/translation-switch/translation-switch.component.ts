@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from "../../../services/translate.service";
+import { TranslateService } from "../../../services/translate/translate.service";
 
 @Component({
   selector: 'app-translation-switch',

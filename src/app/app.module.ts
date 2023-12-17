@@ -19,10 +19,11 @@ import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import {MatSidenavModule} from "@angular/material/sidenav";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatTableModule } from "@angular/material/table";
 
 // Services imports
-import { TranslateService } from "./services/translate.service";
+import { TranslateService } from "./services/translate/translate.service";
 
 // Pipes imports
 import { TranslatePipe } from './pipes/translate/translate.pipe';
@@ -49,7 +50,7 @@ export function setupTranslateServiceFactory(
     HeaderComponent,
     FooterComponent,
     StartPageComponent,
-    UppercasePipe
+    UppercasePipe,
   ],
   imports: [
     // Angular modules
@@ -70,6 +71,7 @@ export function setupTranslateServiceFactory(
     MatFormFieldModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatTableModule
   ],
   providers: [
     TranslateService,

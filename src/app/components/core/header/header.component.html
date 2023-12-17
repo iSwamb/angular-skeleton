@@ -1,5 +1,10 @@
 <mat-toolbar color="primary">
   <span>{{ 'components.core.header.title' | translate }}</span>
+  <div class="ml">
+    <a href="#" mat-button>{{ 'components.core.footer.home' | translate | uppercase }}</a>
+    <a href="#" mat-button>{{ 'components.core.footer.about' | translate | uppercase }}</a>
+    <a href="#" mat-button>{{ 'components.core.footer.contact' | translate | uppercase }}</a>
+  </div>
   <span class="example-spacer"></span>
   <app-translation-switch></app-translation-switch>
 </mat-toolbar>
