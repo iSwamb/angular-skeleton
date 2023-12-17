@@ -75,7 +75,7 @@ To use the translations, you need to add the `translate` pipe to the HTML elemen
 <h1>{{ 'home.title' | translate }}</h1>
 
 <!-- Uppercase translation -->
-<h1>{{ 'home.home' | translate | uppercase }}</h1>
+<h1>{{ 'home.title' | translate | uppercase }}</h1>
 ```
 
 Also, be careful about the repetition of the translations. If you have a translation that is used in multiple components, you need to create a key for it in the JSON file of each language. Then, you can use it in the HTML element you want to translate. For example:
