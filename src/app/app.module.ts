@@ -1,5 +1,5 @@
 // Angular imports
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 // Commons modules imports
 import { HttpClient, HttpClientModule } from "@angular/common/http";
@@ -23,7 +23,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatTableModule } from "@angular/material/table";
 
 // Services imports
-import { TranslateService } from "./services/translate/translate.service";
+import { CrudService } from "./services/crud/crud.service";
 
 // NGX Translate imports
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -36,12 +36,7 @@ import { FooterComponent } from './components/core/footer/footer.component';
 import { TranslationSwitchComponent } from "./components/core/translation-switch/translation-switch.component";
 import { StartPageComponent } from './components/start-page/start-page.component';
 
-// This function is used to initialize the translation service
-export function setupTranslateServiceFactory(
-  service: TranslateService): Function {
-  return () => service.use('fr');
-}
-
+// NGX Translate loader
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
@@ -85,14 +80,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatTableModule
   ],
   providers: [
-    TranslateService,
     {
-      provide: APP_INITIALIZER,
-      useFactory: setupTranslateServiceFactory,
-      deps: [
-        TranslateService
-      ],
-      multi: true
+      provide: CrudService,
+      deps: [HttpClient]
     }
   ],
   bootstrap: [AppComponent]

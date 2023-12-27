@@ -122,6 +122,74 @@ Finally, you can simply use the component in the HTML of the components you want
 <app-my-component></app-my-component>
 ```
 
+### CrudService
+In this skeleton, you'll find a service called `crud.service.ts`. This service is used to make CRUD requests to the API. It contains the following methods:
+* `getList()`: Get the list of the resources
+* `getById(id)`: Get a resource by its ID
+* `add(resource)`: Add a new resource
+* `update(resource)`: Update a resource
+* `remove(id)`: Delete a resource by its ID
+
+To use this service, follow these steps:
+
+1. Create a new model in the `models` folder. The name of the model must be the name of the resource in Pascal case (e.g. `User`).
+
+```typescript
+// user.ts
+
+export class User {
+  id: number;
+  name: string;
+  email: string;
+  email_verified_at: Date;
+  createdAt: Date;
+  updatedAt: Date;
+}
+```
+
+2. In the component where you want to use the service, create a new instance of the service:
+
+```typescript
+// users.component.ts
+
+import {Component, OnInit} from '@angular/core';
+import {CrudService} from "../../services/crud/crud.service";
+import {HttpClient} from "@angular/common/http";
+import {User} from "../../models/user";
+
+@Component({
+    selector: 'app-start-page',
+    templateUrl: './start-page.component.html',
+    styleUrls: ['./start-page.component.css']
+})
+export class StartPageComponent implements OnInit {
+    // Create a new instance of the CrudService, specifying the model and the endpoint of the resource
+    private userService = new CrudService<User>(this.httpClient, {resourceEndpoint: '/users'});
+    // Create a new array of users
+    public users: User[] = [];
+
+    constructor(private httpClient: HttpClient) {
+    }
+
+    // Load the users when the component is initialized
+    ngOnInit() {
+        this.loadUsers();
+    }
+
+    // Load the users using the CrudService
+    private loadUsers(): void {
+        this.userService.getList().subscribe(
+            (response: any) => {
+                this.users = response.data;
+            },
+            error => {
+                console.error('Error while loading the users', error);
+            }
+        );
+    }
+}
+```
+
 
 ## Commits convention
 To make the commits more readable, we use a convention for the commit messages. The commit message must be structured as follows:
