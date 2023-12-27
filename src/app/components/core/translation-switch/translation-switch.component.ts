@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from "../../../services/translate/translate.service";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-translation-switch',
@@ -7,9 +7,9 @@ import { TranslateService } from "../../../services/translate/translate.service"
   styleUrls: ['./translation-switch.component.css']
 })
 export class TranslationSwitchComponent {
-  constructor(private _translateService: TranslateService) {}
+  constructor(public translate: TranslateService) {}
 
   setLang(lang: string) {
-    this._translateService.use(lang);
+    this.translate.use(lang);
   }
 }

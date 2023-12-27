@@ -2,7 +2,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 // Commons modules imports
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from "@angular/router";
@@ -25,9 +25,9 @@ import { MatTableModule } from "@angular/material/table";
 // Services imports
 import { TranslateService } from "./services/translate/translate.service";
 
-// Pipes imports
-import { TranslatePipe } from './pipes/translate/translate.pipe';
-import { UppercasePipe } from './pipes/uppercase/uppercase.pipe';
+// NGX Translate imports
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 // Components imports
 import { AppComponent } from './app.component';
@@ -42,15 +42,17 @@ export function setupTranslateServiceFactory(
   return () => service.use('fr');
 }
 
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
-    TranslatePipe,
     TranslationSwitchComponent,
     HeaderComponent,
     FooterComponent,
     StartPageComponent,
-    UppercasePipe,
   ],
   imports: [
     // Angular modules
@@ -60,6 +62,15 @@ export function setupTranslateServiceFactory(
     AppRoutingModule,
     RouterModule,
     SharedModule,
+
+    // NGX Translate modules
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
 
     // Material modules
     MatIconModule,
