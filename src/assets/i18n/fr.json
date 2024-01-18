@@ -1,25 +1,17 @@
 {
-  "components": {
-    "start_page": {
-      "welcome": "Bienvenue sur une page Angular Material",
-      "sub_welcome": "Construire de belles interfaces utilisateurs",
-      "description": "Angular Material offre une large gamme de composants d'interface utilisateur, exploitant la puissance de Material Design pour créer des mises en page magnifiques et réactives.",
-      "doc_link": "Documentation d'Angular Material",
-      "learn_more": "En savoir plus"
-    },
-    "core": {
-      "footer": {
-        "home": "Accueil",
-        "about": "A propos",
-        "contact": "Contact"
-      },
-      "header": {
-        "title": "Votre Application"
-      },
-      "translation_switch": {
-        "fr": "fr",
-        "en": "en"
-      }
+  "start_page": {
+    "welcome": "Bienvenue sur une page Angular Material",
+    "sub_welcome": "Construire de belles interfaces utilisateurs",
+    "description": "Angular Material offre une large gamme de composants d'interface utilisateur, exploitant la puissance de Material Design pour créer des mises en page magnifiques et réactives.",
+    "doc_link": "Documentation d'Angular Material",
+    "learn_more": "En savoir plus"
+  },
+  "core": {
+    "header": {
+      "title": "Votre Application",
+      "home": "Accueil",
+      "about": "A propos",
+      "contact": "Contact"
     }
   }
 }

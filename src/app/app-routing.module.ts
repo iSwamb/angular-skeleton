@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {StartPageComponent} from "./components/start-page/start-page.component";
 
-const routes: Routes = [
+const ROUTES: Routes = [
   {path: '', redirectTo: '/start', pathMatch: 'full'},
   {
     path: 'start',
@@ -11,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

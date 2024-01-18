@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { ENVIRONMENT } from 'src/environments/environment';
 import { InjectionToken } from '@angular/core';
 
 export interface ServiceConfig {
@@ -21,7 +21,7 @@ export class CrudService<TModel> {
     protected httpClient: HttpClient,
     @Inject(SERVICE_CONFIG) config: ServiceConfig
   ) {
-    this.baseUrl = environment.apiBaseUrl;
+    this.baseUrl = ENVIRONMENT.apiBaseUrl;
     this.resourceEndpoint = config.resourceEndpoint;
   }
 
