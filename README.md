@@ -160,7 +160,7 @@ import {User} from "../../models/user";
 @Component({
     selector: 'app-start-page',
     templateUrl: './start-page.component.html',
-    styleUrls: ['./start-page.component.css']
+    styleUrls: ['./start-page.component.scss']
 })
 export class StartPageComponent implements OnInit {
     // Create a new instance of the CrudService, specifying the model and the endpoint of the resource
